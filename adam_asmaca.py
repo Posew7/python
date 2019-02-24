@@ -1,5 +1,5 @@
 kelime = "turkhackteam"
-cizgi = 12 * "_"
+cizgi = len(kelime) * "_"
 list_cizgi = []
 list_kelime = []
 can = 10
@@ -12,7 +12,7 @@ for i in kelime:
 print("""
 Adam Asmaca Oyununa Hoşgeldiniz
 Toplam 10 Can Hakkınız Bulunmaktadır
-Tahmin Girişlerinizi Harf Harf Yapınız
+Tahmin Girişlerinizi Küçük Harf Olarak Yapınız
 """)
 
 while(can != 0):
@@ -39,7 +39,6 @@ while(can != 0):
         print("oyun bitti KAYBETTİNİZ\n")
 
     if (list_cizgi == list_kelime):
-        for i in list_cizgi:
-            print(i, "\n")
+        print("TURKHACKTEAM\n")
         print("TEBRİKLER kelimeyi buldunuz")
         break
