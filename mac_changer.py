@@ -1,10 +1,19 @@
 import subprocess
+import optparse
 
-interface = "wlan0"
-mac = "00:11:22:11:33:22"
+def user_input():
+    parse_object = optparse.OptionParser()
+    parse_object.add_option("-i","--interface",dest="interface",help="interface to change!")
+    parse_object.add_option("-m","--mac",dest="mac",help="new mac adress")
 
-subprocess.call(["ifconfig",interface,"down"])
-subprocess.call(["ifconfig",interface,"hw","ether",mac])
-subprocess.call(["ifconfig",interface,"up"])
+    return parse_object.parse_args()
 
-subprocess.call(["ifconfig",interface])
+def mac_changer(interface,mac):
+    subprocess.call(["ifconfig",interface,"down"])
+    subprocess.call(["ifconfig",interface,"hw","ether",mac])
+    subprocess.call(["ifconfig",interface,"up"])
+
+    subprocess.call(["ifconfig",interface])
+
+(user_inputs,arguments) = user_input()
+mac_changer(user_inputs.interface, user_inputs.mac)
