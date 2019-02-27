@@ -15,5 +15,9 @@ def mac_changer(interface,mac):
 
     subprocess.call(["ifconfig",interface])
 
+
+
 (user_inputs,arguments) = user_input()
 mac_changer(user_inputs.interface, user_inputs.mac)
+
+
